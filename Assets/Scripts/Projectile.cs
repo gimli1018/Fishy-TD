@@ -17,9 +17,9 @@ public class Projectile : MonoBehaviour
     void Update()
     {
 
-        this.transform.position -= new Vector3(speed, 0, 0);
+        this.transform.position += new Vector3(speed, 0, 0);
 
-        if (this.transform.position.x <= -320)
+        if (this.transform.position.x >= 320)
         {
             Destroy(this.gameObject);
         }
@@ -31,7 +31,7 @@ public class Projectile : MonoBehaviour
         
         if (other.gameObject.CompareTag("Enemy"))
         {
-            Debug.Log("Projectice: I have touched " + other.gameObject.name);
+            //Debug.Log("Projectice: I have touched " + other.gameObject.name);
 
             other.collider.GetComponent<Enemy_Controller>().takeDamage(1);
 

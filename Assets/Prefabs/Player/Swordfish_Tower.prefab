@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 5327030284029314733}
   - component: {fileID: 6067148879573338147}
   m_Layer: 0
-  m_Name: Wall_Tower
+  m_Name: Swordfish_Tower
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -48,10 +48,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 947baff202a59f9438a7084b52627e17, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  towerShoot: 0
-  animatorTowerShoot: {fileID: 0}
-  towerWall: 1
-  animatorTowerWall: {fileID: 9142528249908739281}
+  towerShoot: 1
+  animatorTowerShoot: {fileID: 9142528249908739281}
+  towerShootSelfDest: {fileID: 8328730313599112870, guid: 02f06bc2954ae2049ad0c69f6c00f9c7, type: 3}
+  towerWall: 0
+  animatorTowerWall: {fileID: 0}
+  towerWallSelfDest: {fileID: 0}
   shootTimer: 0
   shootTimerMax: 3
   projecticle: {fileID: 6462311624549258124, guid: 42171023a24af724ebfcf6a4827e0d57, type: 3}
@@ -97,7 +99,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 875914986, guid: 2a08421522760614da9738c14292fc58, type: 3}
+  m_Sprite: {fileID: -1923136528, guid: d5cbdb6338ed8354389820f5fbfee6f9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -118,7 +120,7 @@ Animator:
   m_GameObject: {fileID: 3996639743921023538}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: b596fcb237617574dbbdcb3b7e123aab, type: 2}
+  m_Controller: {fileID: 9100000, guid: 6dd2ddacb7302ca4294752dcfd3dbc6d, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
