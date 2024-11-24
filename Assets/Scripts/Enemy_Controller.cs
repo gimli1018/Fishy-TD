@@ -6,6 +6,7 @@ using UnityEngine;
 public class Enemy_Controller : MonoBehaviour
 {
     [SerializeField] Animator animatorSurfer;
+    [SerializeField] GameObject surferSelfDest;
 
     public int[] startY;
     public bool stopMovement = false;
@@ -90,7 +91,7 @@ public class Enemy_Controller : MonoBehaviour
         }
         if (health <= 0)
         {
-            // Don't have a death anim yet
+            Instantiate(surferSelfDest, this.transform.position, Quaternion.identity);
             Destroy(this.gameObject);
         }
     }

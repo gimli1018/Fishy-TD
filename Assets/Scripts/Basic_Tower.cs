@@ -7,8 +7,10 @@ public class Basic_Tower : MonoBehaviour
 {
     [SerializeField] private bool towerShoot;
     [SerializeField] Animator animatorTowerShoot;
+    [SerializeField] GameObject towerShootSelfDest;
     [SerializeField] private bool towerWall;
     [SerializeField] Animator animatorTowerWall;
+    [SerializeField] GameObject towerWallSelfDest;
 
     [SerializeField] private float shootTimer;
     [SerializeField] private float shootTimerMax = 3;
@@ -66,11 +68,13 @@ public class Basic_Tower : MonoBehaviour
             // This should be for the death anims but wont work right because the destroy will kill it too quick
             if (towerWall)
             {
-                animatorTowerWall.SetTrigger("death");
+                //animatorTowerWall.SetTrigger("death");
+                Instantiate(towerWallSelfDest, this.transform.position, Quaternion.identity);
             }
             if (towerShoot)
             {
-                animatorTowerShoot.SetTrigger("death");
+                //animatorTowerShoot.SetTrigger("death");
+                Instantiate(towerShootSelfDest, this.transform.position, Quaternion.identity);
             }
 
             Destroy(this.gameObject);

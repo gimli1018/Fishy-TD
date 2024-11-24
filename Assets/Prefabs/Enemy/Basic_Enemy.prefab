@@ -49,9 +49,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animatorSurfer: {fileID: -2061407232403492993}
+  surferSelfDest: {fileID: 8328730313599112870, guid: d6ee69ea7ce5f3c4cb258c4946951af3, type: 3}
   startY: 
   stopMovement: 0
   speed: 0.25
+  bounceTimer: 0
+  bounceTimerMax: 1
   health: 5
 --- !u!212 &2063961096973396373
 SpriteRenderer:
