@@ -41,17 +41,38 @@ public class Basic_Tower : MonoBehaviour
 
     }
 
-    void OnCollisionEnter2D(Collision2D other)
+    /*void OnCollisionEnter2D(Collision2D other)
     {
+        // Is this method not needed?
+
         Debug.Log("Basic Tower: I have touched " + other.gameObject.name);
-    }
+    }*/
 
     public void takeDamage(int damage)
     {
         health -= damage;
 
+        if (towerWall && health > 0)
+        {
+            animatorTowerWall.SetTrigger("takeDamage");
+        }
+        if (towerShoot && health > 0)
+        {
+            animatorTowerShoot.SetTrigger("takeDamage");
+        }
+
         if (health <= 0)
         {
+            // This should be for the death anims but wont work right because the destroy will kill it too quick
+            if (towerWall)
+            {
+                animatorTowerWall.SetTrigger("death");
+            }
+            if (towerShoot)
+            {
+                animatorTowerShoot.SetTrigger("death");
+            }
+
             Destroy(this.gameObject);
         }
     }
