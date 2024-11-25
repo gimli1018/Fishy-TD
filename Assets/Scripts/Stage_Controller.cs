@@ -5,7 +5,7 @@ using UnityEngine;
 public class Stage_Controller : MonoBehaviour
 {
     public float spawnTime;
-    public float spawnTimeMax = 3;
+    public float spawnTimeMax = 4;
     public GameObject enemyOne;
 
     // Start is called before the first frame update
@@ -22,6 +22,11 @@ public class Stage_Controller : MonoBehaviour
         if (spawnTime <= 0)
         {
             Instantiate(enemyOne);
+
+            if(spawnTimeMax > 1)
+            {
+                spawnTimeMax -= .07f; // Decreases the spawn timer by each time, in a 180s game, that's normally 45 spawns 
+            }
             spawnTime = spawnTimeMax;
         }
 
