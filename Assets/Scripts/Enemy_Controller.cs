@@ -92,14 +92,16 @@ public class Enemy_Controller : MonoBehaviour
 
         if (health > 0)
         {
-            //SoundManager.Instance.PlaySFX();
+            int rand = Random.Range(8, 15);
+            SoundManager.Instance.PlaySFX(rand);
             animatorSurfer.SetTrigger("takeDamage");
             bounceTimer = bounceTimerMax / 3;
             bounceBack = true;
         }
         if (health <= 0)
         {
-            //SoundManager.Instance.PlaySFX();
+            int rand = Random.Range(1, 3);
+            SoundManager.Instance.PlaySFX(rand);
             Instantiate(surferSelfDest, this.transform.position, Quaternion.identity);
             Destroy(this.gameObject);
         }
