@@ -61,18 +61,21 @@ public class Basic_Tower : MonoBehaviour
 
         if (towerWall && health > 0)
         {
-            //SoundManager.Instance.PlaySFX();
+            int rand = Random.Range(8, 15);
+            SoundManager.Instance.PlaySFX(rand);
             animatorTowerWall.SetTrigger("takeDamage");
         }
         if (towerShoot && health > 0)
         {
-            //SoundManager.Instance.PlaySFX();
+            int rand = Random.Range(8, 15);
+            SoundManager.Instance.PlaySFX(rand);
             animatorTowerShoot.SetTrigger("takeDamage");
         }
 
         if (health <= 0)
         {
-            //SoundManager.Instance.PlaySFX();
+            int rand = Random.Range(1, 3);
+            SoundManager.Instance.PlaySFX(rand);
             // This should be for the death anims but wont work right because the destroy will kill it too quick
             if (towerWall)
             {
@@ -98,7 +101,8 @@ public class Basic_Tower : MonoBehaviour
 
     public void towerFireProjectile()
     {
-        //SoundManager.Instance.PlaySFX();
+        int rand = Random.Range(3, 7);
+        SoundManager.Instance.PlaySFX(rand);
         //Debug.Log("Basic Tower: Shoot");
         Instantiate(projecticle, this.transform.position, Quaternion.identity); // the rotation is wrong for the triangle I use
     }

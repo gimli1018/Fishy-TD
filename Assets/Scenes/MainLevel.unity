@@ -2595,7 +2595,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.6
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -2692,7 +2692,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sfxSource: {fileID: 1382210616}
-  soundEffects: []
+  soundEffects:
+  - {fileID: 0}
+  - {fileID: 8300000, guid: 9c725724bad01da4da91b1b616e0c1b4, type: 3}
+  - {fileID: 8300000, guid: 655cfa7f5ed93c0408c980bfe19c8877, type: 3}
+  - {fileID: 8300000, guid: 6502aa11eb9a65843a16bc51d79e99ee, type: 3}
+  - {fileID: 8300000, guid: 708cb399ac2838b46baa004c4164d5f9, type: 3}
+  - {fileID: 8300000, guid: 43ec375df77060d418c7dc24f6dddc8e, type: 3}
+  - {fileID: 8300000, guid: 92c4e29975a441840a0c9a7cc22598d1, type: 3}
+  - {fileID: 8300000, guid: 4c875da1378df3845b42f28a562bb0ac, type: 3}
+  - {fileID: 8300000, guid: 7038bcf2546c3084884fdd0029544a20, type: 3}
+  - {fileID: 8300000, guid: 38d52637a4965e048ab033337409f498, type: 3}
+  - {fileID: 8300000, guid: 4ac9c14bf58f4df4f9656acca4e2656d, type: 3}
+  - {fileID: 8300000, guid: bf015b66d7cec4d498237fe9fd954e32, type: 3}
+  - {fileID: 8300000, guid: 55f5398d2152aed41a8abd6a7c0c5c02, type: 3}
+  - {fileID: 8300000, guid: 859c736b7c3c81641bcab05e6f04710d, type: 3}
+  - {fileID: 8300000, guid: 12b33a10d4d70324b94aec7776ce370b, type: 3}
+  - {fileID: 8300000, guid: e823654eaf9bf724daaee36aa151ee8a, type: 3}
+  - {fileID: 8300000, guid: 0651d245842b17743b9b02df5469e28c, type: 3}
+  - {fileID: 8300000, guid: 42a33b28a293c2c4b8c6f1843c2f6b76, type: 3}
+  - {fileID: 8300000, guid: ac99ccace5836dc41aea3b6eba467bc4, type: 3}
+  - {fileID: 8300000, guid: 9c7f773ad94ac9b47a84abfd7300287c, type: 3}
 --- !u!4 &1382210618
 Transform:
   m_ObjectHideFlags: 0

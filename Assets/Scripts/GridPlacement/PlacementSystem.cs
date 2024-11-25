@@ -42,6 +42,8 @@ public class PlacementSystem : MonoBehaviour
 
     public void StartPlacement(int ID)
     {
+        int rand = UnityEngine.Random.Range(16, 19);
+        SoundManager.Instance.PlaySFX(rand);
         StopPlacement();
         selectedObjectIndex = database.objectsData.FindIndex(data => data.ID == ID);
         if(selectedObjectIndex < 0)
