@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Enemy_Controller : MonoBehaviour
 {
@@ -10,13 +11,13 @@ public class Enemy_Controller : MonoBehaviour
 
     public int[] startY;
     public bool stopMovement = false;
-    [SerializeField] private float speed = .25f;
+    [SerializeField] private float speed = 30f;
     
     private bool bounceBack = false;
     [SerializeField] private float bounceTimer;
     [SerializeField] private float bounceTimerMax = 1f;
 
-    [SerializeField] private int health = 5;
+    [SerializeField] private int health = 6;
 
     // Start is called before the first frame update
     void Start()
@@ -39,13 +40,17 @@ public class Enemy_Controller : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Vector3 displacement = new Vector3(1, 0, 0) * speed * Time.deltaTime;
+
         if (stopMovement == false && !bounceBack)
         {
-            this.transform.position -= new Vector3(speed, 0, 0);   
+            //this.transform.position -= new Vector3(speed, 0, 0);
+            this.transform.position -= displacement;
         }
         else
         {
-            this.transform.position += new Vector3(speed, 0, 0);
+            //this.transform.position += new Vector3(speed, 0, 0);
+            this.transform.position += displacement;
 
             bounceTimer -= Time.deltaTime;
 
@@ -59,7 +64,9 @@ public class Enemy_Controller : MonoBehaviour
         if (this.transform.position.x <= -320)
         {
             //Debug.Log("You have lost the game");
-            Destroy(this.gameObject);
+            SceneManager.LoadScene(2);
+
+            //Destroy(this.gameObject);
         }
     }
 
@@ -85,12 +92,14 @@ public class Enemy_Controller : MonoBehaviour
 
         if (health > 0)
         {
+            //SoundManager.Instance.PlaySFX();
             animatorSurfer.SetTrigger("takeDamage");
             bounceTimer = bounceTimerMax / 3;
             bounceBack = true;
         }
         if (health <= 0)
         {
+            //SoundManager.Instance.PlaySFX();
             Instantiate(surferSelfDest, this.transform.position, Quaternion.identity);
             Destroy(this.gameObject);
         }

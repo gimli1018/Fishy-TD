@@ -18,6 +18,9 @@ public class Basic_Tower : MonoBehaviour
 
     [SerializeField] private int health = 5;
 
+    [SerializeField] private Grid grid;
+    private int gameObjectIndex = -1;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -27,6 +30,8 @@ public class Basic_Tower : MonoBehaviour
         {
             health *= 3;
         }
+
+        grid = FindObjectOfType<Grid>();
     }
 
     // Update is called once per frame
@@ -56,15 +61,18 @@ public class Basic_Tower : MonoBehaviour
 
         if (towerWall && health > 0)
         {
+            //SoundManager.Instance.PlaySFX();
             animatorTowerWall.SetTrigger("takeDamage");
         }
         if (towerShoot && health > 0)
         {
+            //SoundManager.Instance.PlaySFX();
             animatorTowerShoot.SetTrigger("takeDamage");
         }
 
         if (health <= 0)
         {
+            //SoundManager.Instance.PlaySFX();
             // This should be for the death anims but wont work right because the destroy will kill it too quick
             if (towerWall)
             {
@@ -76,6 +84,13 @@ public class Basic_Tower : MonoBehaviour
                 //animatorTowerShoot.SetTrigger("death");
                 Instantiate(towerShootSelfDest, this.transform.position, Quaternion.identity);
             }
+            
+            //GridData selectedData = GameObject.Find("PlacementSystem").towerData;
+            GridData selectedData = PlacementSystem.towerData;
+            Vector3Int gridPosition = grid.WorldToCell(this.transform.position - new Vector3(-32, -32, 0));
+            Debug.Log(gridPosition + " " + gameObjectIndex);
+            gameObjectIndex = selectedData.GetRepresentationIndex(gridPosition);
+            selectedData.RemoveObjectAt(gridPosition);
 
             Destroy(this.gameObject);
         }
@@ -83,6 +98,7 @@ public class Basic_Tower : MonoBehaviour
 
     public void towerFireProjectile()
     {
+        //SoundManager.Instance.PlaySFX();
         //Debug.Log("Basic Tower: Shoot");
         Instantiate(projecticle, this.transform.position, Quaternion.identity); // the rotation is wrong for the triangle I use
     }
